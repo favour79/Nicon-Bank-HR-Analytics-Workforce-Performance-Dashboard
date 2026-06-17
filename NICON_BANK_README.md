@@ -25,16 +25,14 @@ The work covered two phases: **data cleaning in Power Query** and **dashboard de
 ## 🗂️ Project Structure
 
 ```
-nicon-bank-hr-dashboard/
+Nicon Bank — HR Analytics & Workforce Performance Dashboard/
 │
-├── data/
+├── Data/
 │   ├── Nicon_Bank_Raw_HR_Data.xlsx          # Original dataset (messy)
 │   └── Nicon_Bank_HR_Data_Cleaned.xlsx      # Cleaned & transformed version
 │
-├── dashboard/
-│   └── Nicon_Bank_HR_Dashboard.pbix         # Final Power BI dashboard file
-│
-├── assets/
+├── Dashboard/
+│   ├── Nicon_Bank_HR_Dashboard.pbix         # Final Power BI dashboard file
 │   └── dashboard_preview.jpg                # Dashboard screenshot
 │
 └── README.md
