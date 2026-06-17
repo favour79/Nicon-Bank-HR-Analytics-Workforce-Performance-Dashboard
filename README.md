@@ -4,7 +4,7 @@
 
 ## 📸 Dashboard Preview
 
-![Nicon Bank HR Dashboard](Dashboard/dashboard_preview.jpg)
+![Nicon Bank HR Dashboard](Dashboard/dashboard_preview.jpg/Nicon%20Bank%20HR's%20Dashboard.jpg)
 
 > *Full interactive dashboard built in Power BI Desktop. Use the Location and Hire Year slicers to filter all visuals dynamically.*
 
