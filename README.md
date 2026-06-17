@@ -2,6 +2,33 @@
 
 ---
 
+## 📑 Table of Contents
+
+- [Dashboard Preview](#-dashboard-preview)
+- [Project Overview](#-project-overview)
+- [Project Structure](#-project-structure)
+- [The Data Problem](#-the-data-problem)
+- [Case Study 1 — Data Cleaning (Power Query)](#-case-study-1--data-cleaning-power-query)
+- [Case Study 2 — HR Analytics Dashboard (Power BI)](#-case-study-2--hr-analytics-dashboard-power-bi)
+  - [Step 1 — Wireframing the Dashboard Layout](#-step-1--wireframing-the-dashboard-layout)
+  - [Step 2 — Building the Dashboard](#-step-2--building-the-dashboard)
+- [Dashboard Sections & Key Findings](#-dashboard-sections--key-findings)
+  - [KPI Summary Cards](#-kpi-summary-cards)
+  - [Employee Hires and Exit Trend (2018 – 2024)](#-employee-hires-and-exit-trend-2018--2024)
+  - [Employees by Age Group](#-employees-by-age-group)
+  - [Attrition by Age Group](#-attrition-by-age-group)
+  - [Attrition by Department](#-attrition-by-department)
+  - [Attrition by Gender](#-attrition-by-gender)
+  - [Employees by Location](#-employees-by-location)
+  - [Employees by Department](#-employees-by-department)
+- [Workforce Recommendations](#-workforce-recommendations)
+- [Tools & Techniques Used](#-tools--techniques-used)
+- [How to Use This Project](#-how-to-use-this-project)
+- [About the Analyst](#-about-the-analyst)
+- [License](#-license)
+
+---
+
 ## 📸 Dashboard Preview
 
 ![Nicon Bank HR Dashboard](Dashboard/dashboard_preview.jpg/Nicon%20Bank%20HR's%20Dashboard.jpg)
@@ -12,11 +39,11 @@
 
 ## 📌 Project Overview
 
-Nicon Bank is a growing financial institution with **200 employees** spread across five locations: Lagos, Ibadan, Kano, Abuja, and Port Harcourt. As the bank expanded over the years, management started flagging a concern that was hard to ignore — people were leaving, and no one had a clear picture of where exactly the exits were happening, which groups were most affected, or whether the bank's hiring pace was keeping up.
+Nicon Bank is a growing financial institution with **200 employees** spread across five locations: Lagos, Ibadan, Kano, Abuja, and Port Harcourt. As the bank expanded over the years, management struggled with a key question: *How many people have we lost, where are they leaving from, and why?*
 
-**41 employees** had exited the bank, translating to an **attrition rate of 20.5%** — that is 1 in every 5 employees gone, which is significant for an institution still building out its workforce and operational depth.
+**41 employees** had exited the bank, translating to an **attrition rate of 20.5%** — that is 1 in every 5 employees gone, which is significant for an institution still building out its workforce.
 
-This project addresses that gap directly. The goal was to build a clean, interactive HR dashboard in Power BI that gives leadership a single-view snapshot of workforce composition, attrition patterns, and hiring trends — the kind of visibility that makes it possible to move from reactive firefighting to actual workforce planning.
+This project addresses that gap directly. The goal was to build a clean, interactive HR dashboard in Power BI that gives leadership a single-view snapshot of workforce composition, attrition patterns, and demographic breakdowns.
 
 The work covered two phases: **data cleaning in Power Query** and **dashboard development in Power BI Desktop**.
 
@@ -42,7 +69,7 @@ Nicon Bank — HR Analytics & Workforce Performance Dashboard/
 
 ## ⚠️ The Data Problem
 
-The raw HR dataset came in as a single flat table with 11 columns covering all 200 employees. At first glance it looked usable — but once you start querying it, problems surface quickly. Here is a breakdown of the specific issues that were found and how each one was resolved:
+The raw HR dataset came in as a single flat table with 11 columns covering all 200 employees. At first glance it looked usable — but once you start querying it, problems surface quickly. Here is a summary of what was found and how it was fixed:
 
 | # | Issue Found | Example from Data | Fix Applied |
 |---|---|---|---|
@@ -61,7 +88,7 @@ The raw HR dataset came in as a single flat table with 11 columns covering all 2
 
 **Tool Used:** Microsoft Power Query (via Power BI Desktop)
 
-All cleaning was done inside Power Query before the data was ever loaded into the Power BI model. This keeps the transformation logic separate from the raw data and makes it fully reproducible — any new data drop can follow the same pipeline without manual intervention.
+All cleaning was done inside Power Query before the data was ever loaded into the Power BI model. This keeps the transformation logic separate from the raw data and makes it fully reproducible — anyone opening the `.pbix` file can see every transformation step.
 
 **Transformation Steps Applied:**
 
@@ -89,15 +116,15 @@ All cleaning was done inside Power Query before the data was ever loaded into th
 
 ### 🖊️ Step 1 — Wireframing the Dashboard Layout
 
-Before a single chart was built in Power BI, the dashboard layout was planned out as a wireframe first. This step is easy to skip but it saves a lot of time — jumping straight into Power BI without a layout plan usually means rearranging visuals multiple times and second-guessing the structure throughout.
+Before a single chart was built in Power BI, the dashboard layout was planned out as a wireframe first. This step is easy to skip but it saves a lot of time — jumping straight into Power BI without a plan often results in wasted effort and cluttered visuals.
 
-The wireframe was sketched to map out the placement of the KPI cards at the top, the trend chart and demographic breakdowns in the middle row, and the attrition analysis charts in the bottom row. Once the layout made sense on paper, it was brought into Power BI as the foundation before any data visuals were added. This meant every chart had a predetermined home — the build process was simply a matter of filling in the structure rather than designing on the fly.
+The wireframe was sketched to map out the placement of the KPI cards at the top, the trend chart and demographic breakdowns in the middle row, and the attrition analysis charts in the bottom row. This gave the dashboard a clear information hierarchy.
 
-This approach also made it easier to think about what the General Manager would see first when they open the report. The KPIs sit at the very top because that is the summary — everything below it explains the numbers.
+This approach also made it easier to think about what the General Manager would see first when they open the report. The KPIs sit at the very top because that is the summary — everything below is evidence.
 
 ### 📊 Step 2 — Building the Dashboard
 
-The dashboard was built on a single cleaned table using DAX measures for all KPI calculations, with slicers for **Location** and **Hire Year** to allow leadership to filter the view by specific offices or cohorts. The colour theme — black canvas with orange accents — was chosen to give the dashboard a sharp, executive feel that stands out in presentations.
+The dashboard was built on a single cleaned table using DAX measures for all KPI calculations, with slicers for **Location** and **Hire Year** to allow leadership to filter the view by specific offices or recruitment cohorts.
 
 ---
 
@@ -115,13 +142,13 @@ The dashboard was built on a single cleaned table using DAX measures for all KPI
 | Avg. Monthly Salary | ₦301,300 |
 | Attrition Rate | **20.5%** |
 
-A 20.5% attrition rate is a serious signal for a 200-person workforce. In practical terms, the bank has lost more than a fifth of its staff base — and at an average tenure of just 5 years, there is a real risk of institutional knowledge walking out the door before it gets transferred. The ₦301.3K average monthly salary is a useful baseline, but salary alone clearly is not enough to retain staff across all segments.
+A 20.5% attrition rate is a serious signal for a 200-person workforce. In practical terms, the bank has lost more than a fifth of its staff base — and at an average tenure of just 5 years, there's evidence that the organisation hasn't yet built strong roots with most of its team. This metric anchors every conversation about retention that follows.
 
 ---
 
 ### 📅 Employee Hires and Exit Trend (2018 – 2024)
 
-The line chart tells an interesting story. Hiring peaked in 2020 at 31 new employees and again sharply in 2022–2023 with 38 new hires — likely tied to expansion phases. But exits also tracked upward during those same periods, hitting a peak of 10 terminations in 2022–2023. The gap between hires and exits has been narrowing over time, which means the bank's net headcount growth is slowing even as total hiring activity increases. That is a retention problem, not a recruitment problem.
+The line chart tells an interesting story. Hiring peaked in 2020 at 31 new employees and again sharply in 2022–2023 with 38 new hires — likely tied to expansion phases. But exits also tracked upward during the same periods, suggesting that new hires may not have been properly integrated or supported.
 
 In 2024, the bank brought in 25 new employees but recorded 6 exits. On the surface that looks manageable, but the trajectory warrants attention if the exit rate continues climbing.
 
@@ -136,7 +163,7 @@ In 2024, the bank brought in 25 new employees but recorded 6 exits. On the surfa
 | 20–29 | 47 |
 | 50+ | 35 |
 
-The 30–39 bracket is the backbone of the workforce at 64 employees — these are typically mid-career professionals with enough experience to be high-impact contributors but enough runway to be headhunted aggressively. The 50+ group is the smallest at 35, which is expected given natural retirement timelines.
+The 30–39 bracket is the backbone of the workforce at 64 employees — these are typically mid-career professionals with enough experience to be high-impact contributors but enough runway to be retained. The 50+ group is the smallest at 35, which is concerning given their institutional knowledge and leadership potential.
 
 ---
 
@@ -149,9 +176,9 @@ The 30–39 bracket is the backbone of the workforce at 64 employees — these a
 | 20–29 | 19.1% |
 | 30–39 | 14.1% |
 
-This is arguably the most important finding in the entire dashboard. **The 50+ group has the highest attrition rate at 31.4%** — nearly one in three employees in this bracket has exited. For a bank, this is a significant risk because senior employees in this age range typically hold client relationships, institutional memory, and mentorship responsibilities that are hard to replace quickly.
+This is arguably the most important finding in the entire dashboard. **The 50+ group has the highest attrition rate at 31.4%** — nearly one in three employees in this bracket has exited. For a financial services firm where senior talent drives strategy and client relationships, this is a significant vulnerability.
 
-Interestingly, the 30–39 group — the largest cohort — has the lowest attrition rate at 14.1%. This suggests that mid-career employees are generally stable, but the bank is haemorrhaging experienced senior talent at one end and losing younger staff (20–29 at 19.1%) before they fully develop at the other.
+Interestingly, the 30–39 group — the largest cohort — has the lowest attrition rate at 14.1%. This suggests that mid-career employees are generally stable, but the bank is haemorrhaging experienced senior staff.
 
 ---
 
@@ -165,11 +192,11 @@ Interestingly, the 30–39 group — the largest cohort — has the lowest attri
 | Operations | 19.2% |
 | IT | 17.2% |
 
-**Sales has the worst attrition problem at 27.8%**, which should be a red flag for the board. Sales teams are revenue-generating functions — high turnover here directly threatens customer relationships, loan pipeline activity, and cross-selling performance. The fact that Sales is also the smallest department (only 18 employees) makes each exit proportionally more disruptive.
+**Sales has the worst attrition problem at 27.8%**, which should be a red flag for the board. Sales teams are revenue-generating functions — high turnover here directly threatens customer relationships and revenue stability.
 
-HR at 22% is paradoxical — the very department responsible for talent retention is itself struggling to retain its own people. This points to structural issues possibly around workload, compensation benchmarking, or internal culture rather than role-specific dissatisfaction.
+HR at 22% is paradoxical — the very department responsible for talent retention is itself struggling to retain its own people. This points to structural issues possibly around workload, compensation, or career progression.
 
-IT at 17.2% is the lowest of the five departments, but in the current Nigerian fintech and banking technology landscape where tech talent is intensely competed for, maintaining that rate will require proactive action.
+IT at 17.2% is the lowest of the five departments, but in the current Nigerian fintech and banking technology landscape where tech talent is intensely competed for, maintaining that rate will require proactive engagement.
 
 ---
 
@@ -180,7 +207,7 @@ IT at 17.2% is the lowest of the five departments, but in the current Nigerian f
 | Male | 54.21% |
 | Female | 45.79% |
 
-Male employees account for a slightly higher share of exits at 54.21%, but the split is close enough that gender alone is not a strong predictor of attrition here. The more useful framing is that both genders are leaving — this is not a single-group problem. The focus should remain on department and age group as the primary drivers rather than gender.
+Male employees account for a slightly higher share of exits at 54.21%, but the split is close enough that gender alone is not a strong predictor of attrition here. The more useful framing is that attrition is a cross-cutting issue across the organisation.
 
 ---
 
@@ -194,7 +221,7 @@ Male employees account for a slightly higher share of exits at 54.21%, but the s
 | Abuja | 39 |
 | Port Harcourt | 27 |
 
-Lagos leads marginally but the distribution across the five locations is reasonably balanced — which is a good sign for geographic risk. Port Harcourt is the smallest office at 27 employees. Given that it is also operationally active, any concentrated exits there would be felt immediately. The Location slicer on the dashboard allows leadership to isolate each branch and view all metrics specific to that office.
+Lagos leads marginally but the distribution across the five locations is reasonably balanced — which is a good sign for geographic risk. Port Harcourt is the smallest office at 27 employees. Given its size, any concentrated exits there would be immediately felt.
 
 ---
 
@@ -208,7 +235,7 @@ Lagos leads marginally but the distribution across the five locations is reasona
 | IT | 29 |
 | Sales | 18 |
 
-Operations dominates at 78 employees — nearly 40% of the total workforce. This makes sense for a bank where day-to-day transactional activity, branch management, and card operations require significant staffing. Sales at just 18 is small for a financial institution, and given its 27.8% attrition rate, the department is operating under genuine strain.
+Operations dominates at 78 employees — nearly 40% of the total workforce. This makes sense for a bank where day-to-day transactional activity, branch management, and card operations require significant headcount.
 
 ---
 
@@ -217,22 +244,25 @@ Operations dominates at 78 employees — nearly 40% of the total workforce. This
 Based on the patterns the dashboard surfaces, here are the areas that leadership should prioritise:
 
 **1. Build a Senior Retention Programme**
-The 50+ group's 31.4% attrition rate is too high to ignore. These employees carry years of client-facing experience and institutional knowledge. Before more of them exit, the bank should consider structured exit interview analysis for this cohort, succession planning for senior roles, and targeted retention incentives — whether through salary reviews, flexible scheduling, or recognition programmes.
+The 50+ group's 31.4% attrition rate is too high to ignore. These employees carry years of client-facing experience and institutional knowledge. Before more of them exit, the bank should consider:
+- Structured mentorship roles for senior staff
+- Competitive retention bonuses tied to long-term employment
+- Clear pathways to advisory or board-level positions
 
 **2. Fix the Sales Department Before It Gets Worse**
-At 27.8% attrition and just 18 people, the Sales department is operating at near-critical fragility. One or two more exits and performance will visibly suffer. The bank should urgently review sales compensation structure, sales team targets, and whether the current team is adequately supported by CRM tools and management oversight.
+At 27.8% attrition and just 18 people, the Sales department is operating at near-critical fragility. One or two more exits and performance will visibly suffer. The bank should urgently review salary competitiveness, commission structures, and sales support systems in this function.
 
 **3. Investigate HR's Own Turnover**
-An HR department with 22% attrition is a structural red flag. The team responsible for engagement and retention should itself be stable. A confidential pulse survey specifically for the HR function would help identify what is driving this — whether it is workload, compensation gaps, or management style.
+An HR department with 22% attrition is a structural red flag. The team responsible for engagement and retention should itself be stable. A confidential pulse survey specifically for the HR function should be prioritised.
 
 **4. Close the Hire-Exit Gap**
-The trend chart shows that net headcount growth is slowing because exits are rising alongside hires. Simply recruiting more people is not the answer if the underlying retention issues are not addressed. The bank needs to measure 12-month survival rates for new hires and track where the early exits are concentrating.
+The trend chart shows that net headcount growth is slowing because exits are rising alongside hires. Simply recruiting more people is not the answer if the underlying retention issues are not addressed first.
 
 **5. Monitor Port Harcourt Closely**
-With only 27 employees, Port Harcourt is the most vulnerable office to disruption. Any concentrated exits there — particularly in Operations or Finance — would be immediately felt. A quarterly check-in on Port Harcourt-specific engagement metrics is advisable.
+With only 27 employees, Port Harcourt is the most vulnerable office to disruption. Any concentrated exits there — particularly in Operations or Finance — would be immediately felt. A quarterly location-level health check is recommended.
 
 **6. Develop a Mid-Career Engagement Strategy for the 30–39 Group**
-This cohort has the lowest attrition at 14.1% and is the largest group — which means the bank is doing something right here. Understanding what is working for the 30–39 bracket and applying those lessons to the higher-risk groups (50+ and 20–29) could meaningfully move the attrition rate in the right direction.
+This cohort has the lowest attrition at 14.1% and is the largest group — which means the bank is doing something right here. Understanding what is working for the 30–39 bracket and applying those practices more broadly could unlock retention improvements across other age groups.
 
 ---
 
@@ -289,7 +319,7 @@ AVERAGEX(
 
 ## 👤 About the Analyst
 
-This project was built by **Favour Chidozie Chukwu**, a Data and Credit Risk Analyst with practical experience in financial data analysis, HR analytics, credit risk reporting, and business intelligence across Nigerian financial institutions.
+This project was built by **Favour Chidozie Chukwu**, a Data and Credit Risk Analyst with practical experience in financial data analysis, HR analytics, credit risk reporting, and business intelligence in the banking and fintech sectors.
 
 - 📧 Email: [favour.chukwu@aol.com](mailto:favour.chukwu@aol.com)
 - 📞 Phone: +234 806 513 5360
